@@ -2,7 +2,7 @@
 #define __P2DEFS_H__
 
 #include <stdio.h>
-
+#include "PugiXml\src\pugixml.hpp"
 //  NULL just in case ----------------------
 
 #ifdef NULL
@@ -47,21 +47,13 @@ template <class VALUE_TYPE> void SWAP(VALUE_TYPE& a, VALUE_TYPE& b)
 }
 
 // Standard string size
+
 #define SHORT_STR	32
 #define MID_STR		255
 #define HUGE_STR	8192
 
 // TODO 6: Improve config.xml to store all configuration variables that we have as macros
 // Use a section with the name of each module (see Module::name)
-
-#define FULLSCREEN false
-#define BORDERLESS false
-#define RESIZABLE true
-#define FULLSCREEN_WINDOW false
-#define TITLE "replaceme title"
-#define WIDTH 1024
-#define HEIGHT 768
-#define SCALE 1
 
 // Joins a path and file
 inline const char* const PATH(const char* folder, const char* file)

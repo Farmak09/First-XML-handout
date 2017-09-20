@@ -1,4 +1,38 @@
-<!--Config file for a game-->
-<config>
-  <game_title>Kistofé</game_title>
+﻿<!--Config file for a game-->
+<config>  
+  <strings>
+    <short_str value="32"/>
+    <medium_str value="255"/>
+    <huge_str value="8192"/>
+  </strings>
+  
+  <window>
+    <fullscreen value="false"/>
+    <borderless value="false"/>
+    <resizable value="true"/>
+    <fullscreen_window value="false"/>
+    <game_title>2 shots of Clorox</game_title>
+    <size width="1024" height="768" />
+    <scale value="1"/>
+  </window>
+
+  <audio>
+    <fx_volume value="100"/>
+    <music_volume value="100"/>
+    <default_music_fade_time value="2.0f"/>
+  </audio>
+
+  <input>
+    <num_keys value="352"/>
+    <num_mouse_buttons value="5"/>
+    <last_keys_pressed_buffer value="50"/>
+  </input>
+
+  <render>
+    
+  </render>
+
+  <textures>
+    
+  </textures>
 </config>

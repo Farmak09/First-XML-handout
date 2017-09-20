@@ -9,7 +9,7 @@ j1Input::j1Input() : j1Module()
 {
 	name.create("input");
 
-	for(int i = 0; i < NUM_MOUSE_BUTTONS; ++i)
+	for(int i = 0; i < num_mouse_buttons; ++i)
 	{
 		mouse_buttons[i] = KS_IDLE;
 	}
@@ -20,7 +20,7 @@ j1Input::~j1Input()
 {}
 
 // Called before render is available
-bool j1Input::Awake()
+bool j1Input::Awake(pugi::xml_node node)
 {
 	LOG("Init SDL input event system");
 	bool ret = true;
@@ -31,6 +31,10 @@ bool j1Input::Awake()
 		LOG("SDL_EVENTS could not initialize! SDL_Error: %s\n", SDL_GetError());
 		ret = false;
 	}
+
+	num_keys = node.child("input").child("num_keys").attribute("value").as_uint();
+	num_mouse_buttons = node.child("input").child("num_mouse_buttons").attribute("value").as_uint();
+	last_keys_pressed_buffer = node.child("input").child("last_keys_pressed_buffer").attribute("value").as_uint();
 
 	return ret;
 }
@@ -147,12 +151,12 @@ void j1Input::CleanKeys()
 		windowEvents[i] = false;
 	}
 
-	for(int i = 0; i < NUM_KEYS; ++i)
+	for(int i = 0; i < num_keys; ++i)
 	{
 		keyState[i] = KS_IDLE;
 	}
 
-	for(int i = 0; i < NUM_MOUSE_BUTTONS; ++i)
+	for(int i = 0; i < num_mouse_buttons; ++i)
 	{
 		(mouse_buttons[i] == KS_DOWN || mouse_buttons[i] == KS_REPEAT) ? mouse_buttons[i] = KS_REPEAT : mouse_buttons[i] = KS_IDLE;
 	}

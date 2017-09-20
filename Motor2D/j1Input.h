@@ -36,7 +36,7 @@ public:
 	virtual ~j1Input();
 
 	// Called before render is available
-	bool Awake();
+	bool Awake(pugi::xml_node node);
 
 	// Called before the first frame
 	bool Start();
@@ -77,6 +77,9 @@ private:
 	int			mouse_motion_y;
 	int			mouse_x;
 	int			mouse_y;
+	uint		num_keys;
+	uint		num_mouse_buttons;
+	uint		last_keys_pressed_buffer;
 };
 
 #endif // __j1INPUT_H__
